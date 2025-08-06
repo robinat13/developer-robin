@@ -137,7 +137,15 @@
 
         .navbar-scrolled {
             background-color: rgba(13, 17, 23, 0.85);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(5px);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        /* Blurred background for the navbar when mobile menu is open */
+        .navbar-opened {
+            background-color: rgba(13, 17, 23, 0.85) !important;
+            backdrop-filter: blur(5px) !important;
+            -webkit-backdrop-filter: blur(10px) !important; /* For Safari compatibility */
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         
@@ -257,9 +265,9 @@
             #testimonialCarousel .w-75 { width: 90% !important; }
 
             /* Disable parallax and use smaller images on mobile */
-            /* .parallax-bg {
+            .parallax-bg {
                 background-attachment: scroll;
-            } */
+            }
             #about {
                 background-image: linear-gradient(rgba(1, 4, 9, 0.9), rgba(1, 4, 9, 0.9)), url(https://placehold.co/200x200/010409/30363d?text=CODE);
             }
@@ -960,6 +968,23 @@
                         navCollapse.hide();
                     }
                 });
+            });
+
+            // --- Apply blurred background when mobile navbar is open ---
+            const mainNavbar = document.getElementById('navbar');
+            const collapseElement = document.getElementById('navbarNav');
+
+            // When the menu starts to open, add our new class
+            collapseElement.addEventListener('show.bs.collapse', function () {
+                mainNavbar.classList.add('navbar-opened');
+            });
+
+            // When the menu starts to hide, remove our new class
+            collapseElement.addEventListener('hide.bs.collapse', function () {
+                // But only remove it if the page is scrolled to the top
+                if (window.scrollY < 50) {
+                    mainNavbar.classList.remove('navbar-opened');
+                }
             });
 
         });
