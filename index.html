@@ -485,7 +485,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 mb-4 scroll-reveal" style="transition-delay: 350ms;">
+                    <div class="col-md-6 mb-4 scroll-reveal" style="transition-delay: 300ms;">
                         <div class="card card-custom h-100">
                             <div class="card-body p-4">
                                 <h5 class="card-title fw-bold text-white">Oracle Hospitality Integration Platform & Developer Portal</h5>
@@ -510,7 +510,7 @@
         <section id="testimonials" class="section-wrapper section-darker parallax-bg clip-top clip-bottom">
             <div class="container">
                 <h2 class="text-center display-4 fw-bold text-white mb-5 scroll-reveal">What My Colleagues Say</h2>
-                <div id="testimonialCarousel" class="carousel slide scroll-reveal" data-mdb-carousel-init>
+                <div id="testimonialCarousel" class="carousel slide scroll-reveal">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
                             <div class="w-75 mx-auto p-4 text-center">
@@ -917,10 +917,34 @@
             });
 
             // --- Scroll Reveal Animation ---
+            // const scrollObserver = new IntersectionObserver((entries, observer) => {
+            //     entries.forEach(entry => {
+            //         if (entry.isIntersecting) {
+            //             entry.target.classList.add('is-visible');
+            //             observer.unobserve(entry.target);
+            //         }
+            //     });
+            // }, { threshold: 0.1 });
+            // --- Scroll Reveal Animation ---
+             let testimonialCarouselInstance = null;
+
             const scrollObserver = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('is-visible');
+
+                        // --- Create and START Carousel When Visible ---
+                        if (entry.target.id === 'testimonialCarousel' && !testimonialCarouselInstance) {
+                            
+                            // Step 1: Create the carousel instance
+                            testimonialCarouselInstance = new mdb.Carousel(entry.target, {
+                                interval: 9000, 
+                            });
+                            
+                            // Step 2: Explicitly START the auto-play cycle
+                            testimonialCarouselInstance.cycle();
+                        }
+
                         observer.unobserve(entry.target);
                     }
                 });
@@ -929,14 +953,6 @@
             document.querySelectorAll('.scroll-reveal').forEach(el => {
                 scrollObserver.observe(el);
             });
-
-            // --- Carousel Initialization ---
-            const testimonialCarousel = document.getElementById('testimonialCarousel');
-            if(testimonialCarousel) {
-                const carousel = new mdb.Carousel(testimonialCarousel, {
-                    interval: 15000, // 15 seconds
-                });
-            }
 
             // --- Manual Carousel Initialization for Modals ---
             // This prevents the page from freezing by initializing the carousel only when the modal is visible.
