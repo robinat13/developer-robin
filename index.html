@@ -288,6 +288,15 @@
             .clip-bottom { clip-path: polygon(0 0, 100% 0, 100% 98%, 0 100%); }
             .clip-both { clip-path: polygon(0 2%, 100% 0, 100% 98%, 0 100%); }
             .timeline-item-header h4 { font-size: 1.1rem; }
+            .parallax-bg {
+                background-attachment: scroll;
+            }
+            /* Testimonial carousel height fix */
+            #testimonialCarousel .carousel-inner {
+                min-height: 50vh; /* Adjust as needed */
+                display: flex;
+                align-items: center;
+            }
         }
     </style>
 </head>
@@ -480,7 +489,8 @@
                         <div class="card card-custom h-100">
                             <div class="card-body p-4">
                                 <h5 class="card-title fw-bold text-white">Carbon Dashboard</h5>
-                                <p class="card-text text-white-50">An internal Company dashboard to track the Carbon footprint left by each employee in order to support the goal of Carbon neutrality. Worked on Serverless functions that process big employee data and make meaning of it by passing it through serveral data manipulation pipelines and storing output documents in MongoDb. Serverless functions to support Service for UI and crafted beautiful graphs and dashboards to manage Carbon footprints including hotel stays, bus travels, flights taken etc</p>
+                                <p class="card-text text-white-50">An internal Company dashboard to track the Carbon footprint left by each employee in order to support the goal of Carbon neutrality.</p>
+                                <p class="card-text text-white-50">Worked on Serverless functions that process big employee data and make meaning of it by passing it through serveral data manipulation pipelines and storing output documents in MongoDb. Serverless functions to support Service for UI and crafted beautiful graphs and dashboards to manage Carbon footprints including hotel stays, bus travels, flights taken etc.</p>
                                 <span class="badge me-1" style="background-color: rgba(34, 211, 238, 0.1); color: #22d3ee;">Azure</span><span class="badge me-1" style="background-color: rgba(34, 211, 238, 0.1); color: #22d3ee;">Serverless</span><span class="badge" style="background-color: rgba(34, 211, 238, 0.1); color: #22d3ee;">MongoDB</span><span class="badge" style="background-color: rgba(34, 211, 238, 0.1); color: #22d3ee;">ReactJs</span>
                             </div>
                         </div>
@@ -489,7 +499,8 @@
                         <div class="card card-custom h-100">
                             <div class="card-body p-4">
                                 <h5 class="card-title fw-bold text-white">Oracle Hospitality Integration Platform & Developer Portal</h5>
-                                <p class="card-text text-white-50">An Integration platform and Developer portal that integrated all Hospitality products in one place. Led the technical design for major architectural enhancements like API Access Control, API Search Engine, Cross-region communications, and the new Identity System integrations. Taken full ownership of critical features including the API Search Engine, API Release Automation, and a new external billing system, consistently ensuring platform stability and driving innovation</p>
+                                <p class="card-text text-white-50">An Integration platform and Developer portal that integrated all Hospitality products in one place.</p>
+                                <p class="card-text text-white-50">Led the technical design for major architectural enhancements like API Access Control, API Search Engine, Cross-region communications, and the new Identity System integrations. Taken full ownership of critical features including the API Search Engine, API Release Automation, and a new external billing system, consistently ensuring platform stability and driving innovation</p>
                                 <span class="badge me-1" style="background-color: rgba(34, 211, 238, 0.1); color: #22d3ee;">Oracle JET</span><span class="badge me-1" style="background-color: rgba(34, 211, 238, 0.1); color: #22d3ee;">Python</span>
                                 <span class="badge" style="background-color: rgba(34, 211, 238, 0.1); color: #22d3ee;">Scripting</span>
                                 <span class="badge" style="background-color: rgba(34, 211, 238, 0.1); color: #22d3ee;">Helidon</span>
@@ -499,6 +510,22 @@
                                 <span class="badge" style="background-color: rgba(34, 211, 238, 0.1); color: #22d3ee;">TypeScript</span>
                                 <span class="badge" style="background-color: rgba(34, 211, 238, 0.1); color: #22d3ee;">ELK Stack</span>
                                 <span class="badge" style="background-color: rgba(34, 211, 238, 0.1); color: #22d3ee;">Identity Systems</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4 scroll-reveal" style="transition-delay: 300ms;">
+                        <div class="card card-custom card-clickable h-100" data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#projectModal4">
+                            <div class="card-body p-4">
+                                <i class="fas fa-external-link-alt text-info position-absolute top-0 end-0 mt-3 me-3"></i>
+                                <h5 class="card-title fw-bold text-white">Insight Query</h5>
+                                <p class="card-text text-white-50">InsightQuery is an intelligent analytics service that transforms natural language questions into beautiful, interactive visualizations. It's a secure, scalable, and intuitive layer that sits on top of your existing data infrastructure, empowering your entire team to make data-driven decisions instantly.</p>
+                                <p class="card-text text-white-50">Designed and Developed all the layers of InsightQuery from bottom to top.</p>
+                                <span class="badge" style="background-color: rgba(34, 211, 238, 0.1); color: #22d3ee;">Natural Language Processing</span>
+                                <span class="badge" style="background-color: rgba(34, 211, 238, 0.1); color: #22d3ee;">Prompt Engineering</span>
+                                <span class="badge" style="background-color: rgba(34, 211, 238, 0.1); color: #22d3ee;">AI</span>
+                                <span class="badge" style="background-color: rgba(34, 211, 238, 0.1); color: #22d3ee;">Chart.js</span>
+                                <span class="badge" style="background-color: rgba(34, 211, 238, 0.1); color: #22d3ee;">NodeJs</span>
+                                <span class="badge" style="background-color: rgba(34, 211, 238, 0.1); color: #22d3ee;">TypeScript</span>
                             </div>
                         </div>
                     </div>
@@ -682,6 +709,38 @@
               </div>
               <button class="carousel-control-prev" style="color:#22d3ee;" type="button" data-mdb-target="#carouselProject3" data-mdb-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden">Previous</span></button>
               <button class="carousel-control-next" style="color:#22d3ee;" type="button" data-mdb-target="#carouselProject3" data-mdb-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span><span class="visually-hidden">Next</span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 4 -->
+    <div class="modal fade" id="projectModal4" tabindex="-1" aria-labelledby="projectModal4Label" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title text-white" id="projectModal4Label">Insight Query</h5>
+            <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div id="carouselProject4" class="carousel slide">
+              <div class="carousel-inner rounded-5 shadow-4-strong">
+                <div class="carousel-item active">
+                  <img src="./images/projects/insight_1.png" class="d-block w-100" alt="insight_1"/>
+                </div>
+                <div class="carousel-item">
+                    <img src="./images/projects/insight_3.png" class="d-block w-100" alt="insight_3"/>
+                </div>
+                <div class="carousel-item">
+                  <img src="./images/projects/insight_2.png" class="d-block w-100" alt="insight_2"/>
+                </div>
+                <div class="carousel-item">
+                  <img src="./images/projects/insight_4.png" class="d-block w-100" alt="insight_4"/>
+                </div>
+              </div>
+              <button class="carousel-control-prev" style="color:#22d3ee;" type="button" data-mdb-target="#carouselProject4" data-mdb-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden">Previous</span></button>
+              <button class="carousel-control-next" style="color:#22d3ee;" type="button" data-mdb-target="#carouselProject4" data-mdb-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span><span class="visually-hidden">Next</span></button>
             </div>
           </div>
         </div>
